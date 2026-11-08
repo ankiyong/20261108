@@ -4827,6 +4827,145 @@ section.slide.m4-a-s53 pre.prompt, section.slide.m4-a-s56 pre.prompt { font-size
 }
 @media (prefers-reduced-motion: reduce) { #deck-controls { transition: none; } }
 @media print { #presentation-overlay, #fullscreen-toggle { display: none !important; } }
+/* m2-ways */
+.slide.m2-ways .m2-ways-content { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 16px; min-width: 0; min-height: 0; }
+.slide.m2-ways .m2-ways-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; min-height: 0; }
+.slide.m2-ways .m2-ways-card { display: flex; flex-direction: column; gap: 12px; min-width: 0; min-height: 0; padding: 20px; }
+.slide.m2-ways .m2-ways-card > * { flex-shrink: 0; }
+.slide.m2-ways .m2-ways-heading { display: flex; align-items: center; gap: 12px; }
+.slide.m2-ways .m2-ways-heading h3 { margin: 0; color: var(--ink); font-size: 24px; font-weight: 500; line-height: 32px; word-break: keep-all; }
+.slide.m2-ways .num { display: inline-flex; flex: 0 0 32px; align-items: center; justify-content: center; width: 32px; height: 32px; font-size: 18px; line-height: 1; }
+.slide.m2-ways .body, .slide.m2-ways .caption { margin: 0; font-size: 18px; line-height: 26px; word-break: keep-all; }
+.slide.m2-ways .m2-ways-flow { padding-top: 12px; border-top: 1px solid var(--hairline); line-height: 28px; }
+.slide.m2-ways .m2-ways-card code { font: inherit; }
+.slide.m2-ways .m2-ways-example { color: var(--ink); white-space: nowrap; }
+.slide.m2-ways .m2-ways-tree { margin: 0; color: var(--ink); font-family: Consolas, "Courier New", monospace; font-size: 18px; font-weight: 400; line-height: 22px; white-space: pre; }
+.slide.m2-ways .m2-ways-check { margin-top: 8px; color: var(--muted); font-weight: 400; }
+.slide.m2-ways .m2-ways-next { margin-top: auto; color: var(--ink); }
+.slide.m2-ways .m2-ways-summary { margin: 0; color: var(--ink); font-size: 22px; font-weight: 400; line-height: 28px; text-align: center; white-space: nowrap; }
+/* slide overview */
+#overview-toggle > svg { display: block; width: 18px; height: 18px; flex-shrink: 0; pointer-events: none; }
+#slide-overview { position: fixed; inset: 0; z-index: 90; padding: 0 clamp(12px, 3vw, 40px) 40px; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; scroll-padding: 88px 0 24px; color: #f8fafc; background: rgba(10, 15, 24, 0.96); }
+#slide-overview[hidden] { display: none !important; }
+.overview-header { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; margin-bottom: 8px; background: #111827; }
+#overview-title { margin: 0; font-size: 20px; font-weight: 500; line-height: 1.4; color: #f8fafc; }
+#overview-close { flex-shrink: 0; padding: 8px 12px; border: 1px solid #64748b; border-radius: 8px; color: #f8fafc; background: #253041; font: inherit; font-size: 14px; }
+#overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: 16px; align-items: start; }
+.overview-card { display: block; width: 100%; min-width: 0; margin: 0; padding: 6px; appearance: none; border: 2px solid transparent; border-radius: 10px; color: #f8fafc; background: #253041; font: inherit; text-align: left; scroll-margin-block: 12px; }
+.overview-card:hover { background: #334155; }
+.overview-card[aria-current="true"] { border-color: #fb923c; }
+#slide-overview .overview-card:focus-visible, #overview-close:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 3px; }
+.overview-thumb { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 5px; color: var(--body); background: var(--canvas); font-size: 16px; font-weight: 400; line-height: normal; text-align: left; }
+.overview-clone { --deck-scale: 1; position: absolute !important; inset: 0 auto auto 0 !important; width: 1280px !important; height: 720px !important; max-width: none !important; max-height: none !important; margin: 0 !important; transform: scale(var(--overview-scale, 0)) !important; transform-origin: top left !important; visibility: visible !important; opacity: 1 !important; }
+.overview-clone, .overview-clone *, .overview-clone::before, .overview-clone::after, .overview-clone *::before, .overview-clone *::after { animation: none !important; transition: none !important; pointer-events: none !important; }
+.overview-clone [data-anim], .overview-clone [data-anim="stagger"] > * { opacity: 1 !important; visibility: visible !important; translate: none !important; scale: none !important; }
+.overview-clone :is(path, line)[data-anim="draw"] { stroke-dashoffset: 0 !important; }
+.overview-clone [data-anim="highlight"] { background-size: 100% 100% !important; }
+.overview-caption { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 8px; padding: 9px 3px 3px; font-size: 13px; line-height: 20px; }
+.overview-number { color: #fdba74; font-variant-numeric: tabular-nums; }
+.overview-label { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+html.overview-open #slide-overview, html.overview-open #slide-overview * { cursor: default !important; }
+html.overview-open #slide-overview button, html.overview-open #slide-overview button * { cursor: pointer !important; }
+@media print { #slide-overview, #overview-toggle { display: none !important; } }
+/* m1-s07 form */
+.slide.m1-s07 .m1-s07-form { grid-template-rows: auto minmax(0, 1fr) auto; align-content: stretch; gap: var(--s4); height: 100%; min-height: 0; overflow: hidden; }
+.slide.m1-s07 .m1-s07-form .m1-s07-field { min-height: 0; }
+.slide.m1-s07 .m1-s07-form .m1-s07-name { margin-top: var(--s2); }
+.slide.m1-s07 .m1-s07-process-field { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: var(--s2); min-width: 0; min-height: 0; }
+.slide.m1-s07 .m1-s07-form .m1-s07-process { position: relative; grid-auto-rows: max-content; align-content: start; gap: var(--s2); min-width: 0; min-height: 0; margin: 0; padding: var(--s1); overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.slide.m1-s07 .m1-s07-form .m1-s07-process > li { display: grid; grid-template-columns: 28px minmax(0, 1fr) 36px; align-items: center; gap: var(--s2); min-width: 0; min-height: 42px; }
+.slide.m1-s07 .m1-s07-input, .slide.m1-s07 .m1-s07-manual { box-sizing: border-box; width: 100%; min-width: 0; margin: 0; padding: 7px 10px; border: 1px solid var(--hairline); border-radius: var(--r-sm); color: var(--ink); background: var(--canvas); font: inherit; font-size: 18px; line-height: 26px; }
+.slide.m1-s07 .m1-s07-input { height: 42px; }
+.slide.m1-s07 .m1-s07-input::placeholder { color: var(--muted); opacity: 0.75; }
+.slide.m1-s07 .m1-s07-input:focus, .slide.m1-s07 .m1-s07-manual:focus, .slide.m1-s07 .m1-s07-button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.slide.m1-s07 .m1-s07-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; box-sizing: border-box; max-width: 100%; min-height: 36px; padding: 6px 10px; border: 1px solid var(--hairline); border-radius: var(--r-sm); color: var(--ink); background: var(--canvas); font: inherit; font-size: 16px; line-height: 22px; cursor: pointer; }
+.slide.m1-s07 .m1-s07-button:hover:not(:disabled) { background: var(--soft); border-color: var(--muted); }
+.slide.m1-s07 .m1-s07-button:disabled { opacity: 0.4; cursor: not-allowed; }
+.slide.m1-s07 .m1-s07-remove { width: 36px; height: 36px; padding: 0; border-radius: 50%; font-size: 24px; line-height: 1; }
+.slide.m1-s07 .m1-s07-add { justify-self: start; }
+.slide.m1-s07 .m1-s07-form-footer { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s2); min-width: 0; }
+.slide.m1-s07 .m1-s07-actions { display: flex; align-items: center; gap: var(--s2); min-width: 0; }
+.slide.m1-s07 .m1-s07-copy { flex: 0 1 auto; min-width: 0; min-height: 40px; text-align: left; }
+.slide.m1-s07 .m1-s07-copy > svg { flex: 0 0 18px; }
+.slide.m1-s07 .m1-s07-copy-label { min-width: 0; overflow-wrap: anywhere; }
+.slide.m1-s07 .m1-s07-copy[aria-busy="true"] { cursor: progress; }
+.slide.m1-s07 .m1-s07-reset { flex: 0 0 auto; margin-left: auto; padding: 4px; border-color: transparent; color: var(--muted); background: transparent; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+.slide.m1-s07 .m1-s07-status { height: 40px; margin: 0; color: var(--muted); font-size: 14px; line-height: 20px; overflow-wrap: anywhere; }
+.slide.m1-s07 .m1-s07-manual { height: 80px; min-height: 0; resize: none; }
+.slide.m1-s07 .m1-s07-manual[hidden] { display: none !important; }
+.slide.m1-s07 .m1-s07-clipboard { position: fixed; top: 0; left: -10000px; width: 1px; height: 1px; margin: 0; padding: 0; border: 0; opacity: 0; pointer-events: none; font-size: 16px; }
+@media print { .slide.m1-s07 button, .slide.m1-s07 .m1-s07-manual, .slide.m1-s07 .m1-s07-clipboard { display: none !important; } }
+/* s22 image fit */
+.slide.s29-slide { grid-template-rows: auto minmax(0, 1fr); }
+.slide.s29-slide .s29-materials { min-height: 0; }
+.slide.s29-slide .s29-form { height: 100%; }
+.slide.s29-slide .s29-preview, .slide.s29-slide .s29-preview .shot-window { min-height: 0; }
+/* s22 prompt move */
+.slide.s29-slide .s29-materials { display: grid; grid-template-columns: 366px 460px; grid-template-rows: minmax(0, 1fr); justify-content: center; align-items: stretch; gap: 32px; min-height: 0; }
+.slide.s29-slide .s29-request { display: grid; grid-template-rows: auto auto auto; align-self: center; gap: 12px; width: 460px; height: auto; margin: 0; padding: 16px; border-radius: 12px; background: #f8fafc; }
+.slide.s29-slide .s29-request .s29-file { margin: 0; font-size: 18px; line-height: 24px; font-weight: 500; }
+.slide.s29-slide .s29-request .s30-zone { display: block; margin: 0; padding: 16px 20px; border: 1px solid #dddddd; border-radius: 8px; background: #ffffff; }
+.slide.s29-slide .s29-request .s30-zone .prompt { margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: #181d26; font-family: inherit; font-size: 20px; line-height: 30px; font-weight: 400; white-space: pre-wrap; word-break: keep-all; overflow-wrap: anywhere; }
+.slide.s29-slide .s29-request .prompt > code { font: inherit; color: inherit; white-space: inherit; }
+.slide.s29-slide .s29-request-caption { margin: 0; color: #41454d; font-size: 14px; line-height: 20px; font-weight: 400; }
+/* intro slide */
+.slide.intro-slide { --intro-ease: cubic-bezier(.2, .8, .2, 1); box-sizing: border-box; width: 1280px; height: 720px; padding: 0; display: block; overflow: hidden; background: #fff; color: #181d26; }
+.intro-slide :is(.intro-title, .intro-tags, .intro-tag, .intro-photo, .intro-name, .intro-bio-item) { transition: transform .8s var(--intro-ease), opacity .65s var(--intro-ease), visibility 0s linear .8s; }
+.intro-slide .intro-title { position: absolute; z-index: 4; left: 64px; top: 40px; width: max-content; margin: 0; padding: 0; color: #2b59d6; font-size: 96px; font-weight: 800; line-height: 1.1; letter-spacing: normal; white-space: nowrap; transform-origin: 0 0; transform: translate(0, 0) scale(.4583333333); }
+.intro-slide[data-step="0"] .intro-title { transform: translate(calc(576px - 50%), calc(320px - 50%)) scale(1); }
+.intro-slide .intro-tags { position: absolute; z-index: 4; left: 640px; top: 329px; width: 0; height: 0; transform-origin: 0 0; transform: translateY(0) scale(1); }
+.intro-slide .intro-tag { position: absolute; left: 0; top: 0; width: max-content; margin: 0; color: #2b59d6; font-size: 52px; font-weight: 800; line-height: 1.2; letter-spacing: normal; white-space: nowrap; opacity: 0; visibility: hidden; }
+.intro-slide .intro-tag--fun { transform: translateX(calc(-150% - 70px)); }
+.intro-slide .intro-tag--empathy { transform: translateX(-50%); }
+.intro-slide .intro-tag--handsome { transform: translateX(calc(50% + 70px)); }
+.intro-slide[data-step="2"] .intro-tag--fun { transform: translateX(-50%); }
+.intro-slide[data-step="3"] .intro-tag--fun { transform: translateX(calc(-100% - 35px)); }
+.intro-slide[data-step="3"] .intro-tag--empathy { transform: translateX(35px); }
+.intro-slide .intro-photo { position: absolute; z-index: 1; display: block; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; border-radius: 0; box-shadow: none; object-fit: fill; pointer-events: none; user-select: none; opacity: 0; visibility: hidden; transform: translate3d(0, 720px, 0); }
+.intro-slide .intro-photo--left { left: 91px; top: 328px; width: 308px; height: 443px; }
+.intro-slide .intro-photo--center { left: 520px; top: 149px; width: 232px; height: 591px; }
+.intro-slide .intro-photo--right { left: 858px; top: 351px; width: 344px; height: 420px; }
+.intro-slide .intro-name { position: absolute; z-index: 3; left: 840px; top: 165px; display: flex; align-items: baseline; gap: 18px; width: max-content; margin: 0; padding: 0; line-height: 1.15; letter-spacing: normal; white-space: nowrap; opacity: 0; visibility: hidden; transform: translate3d(0, 30px, 0); }
+.intro-slide .intro-person { color: #2b59d6; font-size: 92px; font-weight: 300; }
+.intro-slide .intro-role { color: #6aa84f; font-size: 58px; font-weight: 800; }
+.intro-slide .intro-bio { position: absolute; z-index: 3; left: 598px; top: 300px; width: 620px; margin: 0; padding: 0; list-style: none; }
+.intro-slide .intro-bio-item { position: relative; display: block; margin: 0; padding: 0 0 0 26px; color: #181d26; font-size: 30px; font-weight: 700; line-height: 40px; letter-spacing: normal; white-space: nowrap; list-style: none; opacity: 0; visibility: hidden; transform: translate3d(0, 18px, 0); }
+.intro-slide .intro-bio-item::before { content: ""; position: absolute; left: 0; top: 14px; width: 12px; height: 12px; border-radius: 0; background: #f26a4b; }
+.intro-slide > .slide-footer { display: none; }
+.intro-slide:is([data-step="2"], [data-step="3"], [data-step="4"]) .intro-tag--fun,
+.intro-slide:is([data-step="3"], [data-step="4"]) .intro-tag--empathy,
+.intro-slide[data-step="4"] .intro-tag--handsome,
+.intro-slide[data-step="5"] .intro-photo,
+.intro-slide:is([data-step="5"], [data-step="6"], .overview-clone) .intro-name,
+.intro-slide:is([data-step="6"], .overview-clone) :is(.intro-tag, .intro-photo--center, .intro-bio-item) { opacity: 1; visibility: visible; transition-delay: 0s; }
+.intro-slide[data-step="5"] :is(.intro-photo, .intro-name) { transform: translate3d(0, 0, 0); }
+.intro-slide:is([data-step="6"], .overview-clone) .intro-title { transform: translate(0, 0) scale(.4583333333); }
+.intro-slide:is([data-step="6"], .overview-clone) .intro-tags { transform: translateY(-259px) scale(.8461538462); }
+.intro-slide:is([data-step="6"], .overview-clone) .intro-tag--fun { transform: translateX(calc(-150% - 70px)); }
+.intro-slide:is([data-step="6"], .overview-clone) .intro-tag--empathy { transform: translateX(-50%); }
+.intro-slide:is([data-step="6"], .overview-clone) .intro-photo--center { transform: translate3d(-401px, 0, 0); }
+.intro-slide:is([data-step="6"], .overview-clone) :is(.intro-photo--left, .intro-photo--right) { opacity: 0; visibility: hidden; transition-delay: 0s, 0s, .8s; }
+.intro-slide:is([data-step="6"], .overview-clone) .intro-photo--left { transform: translate3d(-460px, 0, 0); }
+.intro-slide:is([data-step="6"], .overview-clone) .intro-photo--right { transform: translate3d(460px, 0, 0); }
+.intro-slide:is([data-step="6"], .overview-clone) .intro-name { transform: translate3d(-277px, 0, 0); }
+.intro-slide:is([data-step="6"], .overview-clone) .intro-bio-item { transform: translate3d(0, 0, 0); transition-delay: calc(var(--intro-order, 0) * .08s); }
+.overview-clone.intro-slide, .overview-clone.intro-slide * { transition: none !important; animation: none !important; }
+@media (prefers-reduced-motion: reduce) { .intro-slide, .intro-slide *, .intro-slide *::before, .intro-slide *::after { transition: none !important; animation: none !important; } }
+@media print {
+  .slide.intro-slide { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide.intro-slide, .slide.intro-slide *, .slide.intro-slide *::before, .slide.intro-slide *::after { transition: none !important; animation: none !important; }
+  .slide.intro-slide .intro-title { transform: translate(0, 0) scale(.4583333333); }
+  .slide.intro-slide .intro-tags { transform: translateY(-259px) scale(.8461538462); }
+  .slide.intro-slide :is(.intro-tag, .intro-photo--center, .intro-name, .intro-bio-item) { opacity: 1; visibility: visible; }
+  .slide.intro-slide .intro-tag--fun { transform: translateX(calc(-150% - 70px)); }
+  .slide.intro-slide .intro-tag--empathy { transform: translateX(-50%); }
+  .slide.intro-slide .intro-photo--center { transform: translate3d(-401px, 0, 0); }
+  .slide.intro-slide :is(.intro-photo--left, .intro-photo--right) { opacity: 0; visibility: hidden; }
+  .slide.intro-slide .intro-photo--left { transform: translate3d(-460px, 0, 0); }
+  .slide.intro-slide .intro-photo--right { transform: translate3d(460px, 0, 0); }
+  .slide.intro-slide .intro-name { transform: translate3d(-277px, 0, 0); }
+  .slide.intro-slide .intro-bio-item { transform: translate3d(0, 0, 0); }
+}
 </style>
 </head>
 <body>
@@ -4893,6 +5032,27 @@ section.slide.m4-a-s53 pre.prompt, section.slide.m4-a-s56 pre.prompt { font-size
       </figure>
     </div>
   </div>
+</section>
+<section class="slide intro-slide" aria-labelledby="intro-title" data-steps="6" data-step="0" data-notes="&lt;ul&gt;&lt;li&gt;진행 1~2분&lt;/li&gt;&lt;li&gt;다음 키(→·PageDown·리모컨)를 누를 때마다 장면 전환: ①제목 이동 ②#유쾌 ③#공감 ④#핸섬 ⑤사진·이름 등장 ⑥약력. 마지막 장면에서 한 번 더 누르면 다음 장표&lt;/li&gt;&lt;li&gt;이전 키는 한 장면씩 되돌림&lt;/li&gt;&lt;/ul&gt;">
+  <h2 id="intro-title" class="intro-title">강사소개</h2>
+  <div class="intro-tags">
+    <span class="intro-tag intro-tag--fun">#유쾌</span>
+    <span class="intro-tag intro-tag--empathy">#공감</span>
+    <span class="intro-tag intro-tag--handsome">#핸섬</span>
+  </div>
+  <img class="intro-photo intro-photo--left" src="assets/instructor/left.png" width="308" height="443" alt="안기용 강사 사진" loading="eager" draggable="false">
+  <img class="intro-photo intro-photo--right" src="assets/instructor/right.png" width="344" height="420" alt="안기용 강사 사진" loading="eager" draggable="false">
+  <img class="intro-photo intro-photo--center" src="assets/instructor/center.png" width="232" height="591" alt="안기용 강사 사진" loading="eager" draggable="false">
+  <p class="intro-name"><span class="intro-person">안기용</span><span class="intro-role"> 강사</span></p>
+  <ul class="intro-bio">
+    <li class="intro-bio-item" style="--intro-order: 0;">(전) 데이터 엔지니어</li>
+    <li class="intro-bio-item" style="--intro-order: 1;">(전) DevOps</li>
+    <li class="intro-bio-item" style="--intro-order: 2;">(현) 생성형AI 전문 강사</li>
+    <li class="intro-bio-item" style="--intro-order: 3;">(현) 대학생 진로 강사</li>
+    <li class="intro-bio-item" style="--intro-order: 4;">(현) 팀빌딩 &amp; 레크레이션 강사</li>
+    <li class="intro-bio-item" style="--intro-order: 5;">(현) 여친 없음</li>
+    <li class="intro-bio-item" style="--intro-order: 6;">(전) 여친 다수</li>
+  </ul>
 </section>
 <section class="slide s02-agenda" data-notes="&lt;ul&gt;&lt;li&gt;진행 시간: 00:02~00:03, 1분.&lt;/li&gt;&lt;li&gt;S01의 결과물을 가리킨 순서대로 모듈을 연결해 설명한다.&lt;/li&gt;&lt;li&gt;표 전체를 읽지 않고 첫 실습 결과물인 ‘업무별 프로젝트와 지침’을 강조한다.&lt;/li&gt;&lt;li&gt;수강생은 모두 무료 계정 기준으로 진행한다. 모듈2·모듈4의 스킬 생성·설치·사용 단계는 Claude에서 필수로 진행하고, 그 밖의 실습은 ChatGPT 위주로 진행한다.&lt;/li&gt;&lt;li&gt;Claude 무료 계정의 스킬 기능 제공 여부와 사용 경로는 강사가 수업 전 실제 계정에서 확인한다. [화면 확인 필요]&lt;/li&gt;&lt;/ul&gt;" aria-labelledby="s02-title">
   <header class="slide-header s02-header">
@@ -5058,29 +5218,38 @@ section.slide.m4-a-s53 pre.prompt, section.slide.m4-a-s56 pre.prompt { font-size
     </p>
   </div>
 </section>
-<section class="slide m1-s07" aria-labelledby="s07-title" data-notes="&lt;ul&gt;&lt;li&gt;진행 구간: 00:11~00:16. 소요 시간: 5분.&lt;/li&gt;&lt;li&gt;AI 없이 종이 또는 메모장에 자기 업무의 작업명과 처리 순서를 적는다.&lt;/li&gt;&lt;li&gt;작업 프로세스는 실제 처리 순서대로 3~5단계로 작성한다. 막히면 오른쪽 주간 업무보고 예시를 참고한다.&lt;/li&gt;&lt;li&gt;완료 기준은 작업명과 프로세스 3~5단계다. 작성한 내용은 다음 시연과 실습에서 사용한다.&lt;/li&gt;&lt;/ul&gt;">
+<section class="slide m1-s07" aria-labelledby="s07-title" data-notes="&lt;ul&gt;&lt;li&gt;진행 구간: 00:11~00:16. 소요 시간: 5분.&lt;/li&gt;&lt;li&gt;장표에 직접 작업명과 처리 순서를 입력한다. 추가·삭제 버튼으로 3~6단계를 작성하고, 복사 버튼으로 복사해 다음 장표(장표 8)의 처리 순서와 장표 11 인터뷰에 붙여 넣는다.&lt;/li&gt;&lt;li&gt;막히면 오른쪽 예시(보고서 작성 6단계)를 참고한다.&lt;/li&gt;&lt;li&gt;입력 내용은 이 브라우저에만 저장된다.&lt;/li&gt;&lt;li&gt;완료 기준: 작업명과 프로세스 3~6단계 입력 후 복사.&lt;/li&gt;&lt;/ul&gt;">
   <div class="m1-s07-layout">
     <header class="slide-header">
       <h2 class="title" id="s07-title" data-anim="fade-in" style="--d:0">실습 — 내 업무 처리 순서 적기</h2>
-      <p class="message">AI 없이 종이·메모장에 작업명과 처리 순서 3~5단계를 적으세요.</p>
     </header>
     <div class="m1-s07-columns">
-      <article class="card-soft m1-s07-panel" aria-label="내 업무 작성 양식" data-anim="fade-up" style="--d:1">
+      <article class="card-soft m1-s07-panel m1-s07-form" aria-label="내 업무 작성 양식" data-anim="fade-up" style="--d:1">
         <div class="m1-s07-field">
-          <h3>① 작업명</h3>
-          <div class="m1-s07-name" role="img" aria-label="작업명을 적는 빈칸">
-            <span class="m1-s07-blank" aria-hidden="true"></span>
+          <h3 id="m1-s07-task-label">① 작업명</h3>
+          <div class="m1-s07-name">
+            <input class="m1-s07-input m1-s07-task" type="text" placeholder="예: 국내 주요 주가 보고서 작성" maxlength="60" aria-labelledby="m1-s07-task-label" autocomplete="off">
           </div>
         </div>
-        <div class="m1-s07-field">
-          <h3>② 작업 프로세스</h3>
-          <ol class="m1-s07-process" aria-label="작업 처리 순서 작성란">
-            <li aria-label="1단계 작성란"><span class="num" aria-hidden="true">1</span><span class="m1-s07-blank" aria-hidden="true"></span></li>
-            <li aria-label="2단계 작성란"><span class="num" aria-hidden="true">2</span><span class="m1-s07-blank" aria-hidden="true"></span></li>
-            <li aria-label="3단계 작성란"><span class="num" aria-hidden="true">3</span><span class="m1-s07-blank" aria-hidden="true"></span></li>
-            <li aria-label="4단계 작성란"><span class="num" aria-hidden="true">4</span><span class="m1-s07-blank" aria-hidden="true"></span></li>
-            <li aria-label="5단계 작성란"><span class="num" aria-hidden="true">5</span><span class="m1-s07-blank" aria-hidden="true"></span></li>
+        <div class="m1-s07-field m1-s07-process-field">
+          <h3 id="m1-s07-process-label">② 작업 프로세스</h3>
+          <ol class="m1-s07-process" aria-labelledby="m1-s07-process-label">
+            <li><span class="num" aria-hidden="true">1</span><input class="m1-s07-input m1-s07-step" type="text" placeholder="단계 내용" maxlength="40" aria-label="1단계 내용" autocomplete="off"><button class="m1-s07-button m1-s07-remove" type="button" aria-label="1단계 삭제"><span aria-hidden="true">×</span></button></li>
+            <li><span class="num" aria-hidden="true">2</span><input class="m1-s07-input m1-s07-step" type="text" placeholder="단계 내용" maxlength="40" aria-label="2단계 내용" autocomplete="off"><button class="m1-s07-button m1-s07-remove" type="button" aria-label="2단계 삭제"><span aria-hidden="true">×</span></button></li>
+            <li><span class="num" aria-hidden="true">3</span><input class="m1-s07-input m1-s07-step" type="text" placeholder="단계 내용" maxlength="40" aria-label="3단계 내용" autocomplete="off"><button class="m1-s07-button m1-s07-remove" type="button" aria-label="3단계 삭제"><span aria-hidden="true">×</span></button></li>
           </ol>
+          <button class="m1-s07-button m1-s07-add" type="button">+ 단계 추가</button>
+        </div>
+        <div class="m1-s07-form-footer">
+          <div class="m1-s07-actions">
+            <button class="m1-s07-button m1-s07-copy" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="2"></rect><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"></path></svg>
+              <span class="m1-s07-copy-label">복사</span>
+            </button>
+            <button class="m1-s07-button m1-s07-reset" type="button">초기화</button>
+          </div>
+          <textarea class="m1-s07-manual" rows="3" readonly hidden spellcheck="false" aria-label="직접 복사할 작업명과 처리 순서"></textarea>
+          <p class="caption m1-s07-status" role="status" aria-live="polite" aria-atomic="true">입력 내용은 이 브라우저에만 저장됩니다.</p>
         </div>
       </article>
       <article class="card-cream m1-s07-panel" aria-label="주간 업무보고 작성 예시" data-anim="fade-up" style="--d:2">
@@ -5091,34 +5260,33 @@ section.slide.m4-a-s53 pre.prompt, section.slide.m4-a-s56 pre.prompt { font-size
         <div class="m1-s07-field">
           <h3>작업 프로세스</h3>
           <ol class="m1-s07-process" aria-label="주간 업무보고 처리 순서">
-            <li><span class="num" aria-hidden="true">1</span><p class="body">부서 메모 모으기</p></li>
-            <li><span class="num" aria-hidden="true">2</span><p class="body">누락 확인</p></li>
-            <li><span class="num" aria-hidden="true">3</span><p class="body">실적·이슈·계획 분류</p></li>
-            <li><span class="num" aria-hidden="true">4</span><p class="body">초안 작성</p></li>
-            <li><span class="num" aria-hidden="true">5</span><p class="body">검토 후 제출</p></li>
+            <li><span class="num" aria-hidden="true">1</span><p class="body">주제 선정</p></li>
+            <li><span class="num" aria-hidden="true">2</span><p class="body">목적 파악 및 보고 대상 선정</p></li>
+            <li><span class="num" aria-hidden="true">3</span><p class="body">조사 범위 선정</p></li>
+            <li><span class="num" aria-hidden="true">4</span><p class="body">자료 조사 및 확인</p></li>
+            <li><span class="num" aria-hidden="true">5</span><p class="body">개요 작성</p></li>
+            <li><span class="num" aria-hidden="true">6</span><p class="body">초안 작성</p></li>
           </ol>
         </div>
       </article>
     </div>
   </div>
 </section>
-<section class="slide m1n-slide m1n-work"  aria-labelledby="s08-title" data-notes="&lt;ul&gt;&lt;li&gt;진행 구간: 00:16~00:23. 소요 시간: 7분. 강사 시연 3분 후 수강생 실습 4분.&lt;/li&gt;&lt;li&gt;새 대화에서 화면의 프롬프트를 사용한다. 강사는 내 업무명을 주간 업무보고 초안 작성으로 바꾸고, S07의 예시 처리 순서와 실습자료/01_모듈1_ChatGPT지침/가상_부서별_주간메모.txt의 원문을 넣는다.&lt;/li&gt;&lt;li&gt;파일명이나 경로만 입력하지 않고 파일을 열어 내용을 복사한다. 시연에서는 1단계 결과와 AI가 확인을 기다리는 모습을 보여준다.&lt;/li&gt;&lt;li&gt;수강생은 같은 프롬프트에 자기 업무명, S07에서 적은 처리 순서, 이번 작업 자료를 넣는다. 자료가 없으면 공통 주간보고 예시를 사용한다.&lt;/li&gt;&lt;li&gt;1~2단계 결과를 확인·수정한다. 순서를 건너뛰거나 확인 없이 다음 단계로 넘어가면 현재 단계에서 멈추고 확인을 기다리도록 바로잡는다.&lt;/li&gt;&lt;li&gt;다시 설명한 순서·기준·표현 방식을 한 줄씩 메모한다. 이 메모를 다음 전환 설명과 인터뷰의 재료로 사용한다.&lt;/li&gt;&lt;li&gt;캡처는 처리 순서와 자료를 입력한 대화 및 1단계 결과를 함께 보여준다. 응답 지연 시 같은 관찰 포인트를 설명한다.&lt;/li&gt;&lt;/ul&gt;">
+<section class="slide m1n-slide m1n-work"  aria-labelledby="s08-title" data-notes="&lt;ul&gt;&lt;li&gt;진행 구간: 00:16~00:23. 소요 시간: 7분. 강사 시연 3분 후 수강생 실습 4분.&lt;/li&gt;&lt;li&gt;새 대화에서 화면의 프롬프트를 사용한다. 강사는 화면의 업무명(국내 주요 주가 보고서 작성) 그대로, 처리 순서에 S07의 예시 6단계(주제 선정 → 목적 파악 및 보고 대상 선정 → 조사 범위 선정 → 자료 조사 및 확인 → 개요 작성 → 초안 작성)를 붙여 넣는다.&lt;/li&gt;&lt;li&gt;시연에서는 1단계 결과와 AI가 확인을 기다리는 모습을 보여준다.&lt;/li&gt;&lt;li&gt;수강생은 같은 프롬프트의 업무명을 자기 업무로 바꾸고, S07에서 적은 처리 순서를 붙여 넣는다. 떠오르는 업무가 없으면 화면의 업무명과 예시 처리 순서를 그대로 사용한다.&lt;/li&gt;&lt;li&gt;1~2단계 결과를 확인·수정한다. 순서를 건너뛰거나 확인 없이 다음 단계로 넘어가면 현재 단계에서 멈추고 확인을 기다리도록 바로잡는다.&lt;/li&gt;&lt;li&gt;다시 설명한 순서·기준·표현 방식을 한 줄씩 메모한다. 이 메모를 다음 전환 설명과 인터뷰의 재료로 사용한다.&lt;/li&gt;&lt;li&gt;캡처는 업무명·처리 순서를 입력한 대화와 1단계 결과를 함께 보여준다. 자료 조사 단계에서 나온 주가 수치는 출처·기준일을 확인한다. 응답 지연 시 같은 관찰 포인트를 설명한다.&lt;/li&gt;&lt;/ul&gt;">
   <header class="slide-header">
     <h2 class="title" id="s08-title" data-anim="fade-in" style="--d:0">시연·실습 — 내 순서대로 AI와 함께 작업</h2>
-    <p class="message">내 처리 순서와 이번 자료를 전달하고, 단계별 결과를 확인·수정한다.</p>
+    <p class="message">내 처리 순서를 전달하고, 단계별 결과를 확인·수정한다.</p>
   </header>
   <div class="m1n-columns">
     <aside class="card-cream m1n-work-panel" aria-label="시연·실습 공통 프롬프트" data-anim="fade-up" style="--d:1">
       <h3>새 대화에서 시작</h3>
       <div class="prompt-block">
-        <p class="caption">[내 업무명]·처리 순서·이번 자료를 바꿔 전체 복사</p>
-        <pre class="prompt"><code>- [내 업무명]을 내 순서대로 함께 작업해줘.
+        <p class="caption">업무명·처리 순서를 바꿔 전체 복사</p>
+        <pre class="prompt"><code>국내 주요 주가 보고서 작성을 내 순서대로 함께 작업해줘.
 - 단계별 결과를 확인받고 진행. 없는 기준은 추측 말고 질문.
-처리 순서: [붙여넣기]
-이번 자료: [붙여넣기]</code></pre>
+- 처리 순서: [붙여넣기]</code></pre>
       </div>
-      <p class="body">S07에서 적은 순서로 1~2단계 진행하며<br>결과를 확인·수정한다.</p>
-      <p class="caption m1n-source">자료가 없으면 주간 업무보고 예시 사용<br><code>가상_부서별_주간메모.txt</code>를 열어 원문 붙여넣기</p>
+
     </aside>
     <figure class="shot m1n-work-shot" data-anim="fade-up" style="--d:2">
       <div class="shot-window" aria-hidden="true">
@@ -5212,7 +5380,7 @@ section.slide.m4-a-s53 pre.prompt, section.slide.m4-a-s56 pre.prompt { font-size
     </div>
   </div>
 </section>
-<section class="slide m1n-slide m1n-interview"  aria-labelledby="s11-title" data-notes="&lt;ul&gt;&lt;li&gt;진행 구간: 00:27~00:39. 소요 시간: 12분. 강사가 문답 두 차례를 시연한 뒤 수강생이 자기 업무로 인터뷰를 이어 간다.&lt;/li&gt;&lt;li&gt;업무 프로젝트를 생성·선택하고 그 안에서 새 대화를 연다. 프로젝트명 예시는 주간 업무보고 작성이다. 진입 경로는 수업 계정에서 확인한다. [화면 확인 필요]&lt;/li&gt;&lt;li&gt;S07에서 적은 업무명과 처리 순서를 먼저 붙여 넣고, 이어서 화면의 지정 인터뷰 요청을 보낸다. 종이에 적었다면 대화창에 옮겨 적는다.&lt;/li&gt;&lt;li&gt;처리 순서를 바탕으로 AI가 평소 업무 과정과 판단 기준을 파악하도록 인터뷰한다. 답변을 모아 내 업무 스타일·프로세스 보고서로 정리하는 것이 목적임을 안내한다. 질문이 처리 순서를 벗어나면 ‘위 업무 처리 순서대로 단계별로 질문해줘’를 덧붙인다.&lt;/li&gt;&lt;li&gt;평소 자료 수령과 누락 확인 과정을 묻고 답하는 문답 두 차례를 보여준다. 오른쪽은 예시이며 실제 AI의 질문 문구는 달라질 수 있다.&lt;/li&gt;&lt;li&gt;수강생은 질문에 하나씩 답하며 평소 처리 과정과 판단 기준, 예외, 사용하는 형식과 문체, 직접 확인하는 부분을 설명한다. 앞선 실습에서 다시 설명한 메모도 답변에 활용한다.&lt;/li&gt;&lt;li&gt;같은 프로젝트의 같은 대화에서 계속한다. 수업 시간에 맞춰 인터뷰를 마치고 ‘이제 정리해줘’로 내 업무 스타일·프로세스 보고서 작성을 요청한 뒤 다음 장표에서 검토한다.&lt;/li&gt;&lt;li&gt;프로젝트를 사용할 수 없으면 일반 대화에서 인터뷰하고, 마지막 지침 저장 장표의 대안을 따른다. 응답 제한 시 준비한 인터뷰 기록과 보고서 예시로 설명한다.&lt;/li&gt;&lt;/ul&gt;">
+<section class="slide m1n-slide m1n-interview"  aria-labelledby="s11-title" data-notes="&lt;ul&gt;&lt;li&gt;진행 구간: 00:27~00:39. 소요 시간: 12분. 강사가 문답 두 차례를 시연한 뒤 수강생이 자기 업무로 인터뷰를 이어 간다.&lt;/li&gt;&lt;li&gt;업무 프로젝트를 생성·선택하고 그 안에서 새 대화를 연다. 프로젝트명 예시는 보고서 작성이다. 진입 경로는 수업 계정에서 확인한다. [화면 확인 필요]&lt;/li&gt;&lt;li&gt;S07에서 적은 업무명과 처리 순서를 먼저 붙여 넣고, 이어서 화면의 지정 인터뷰 요청을 보낸다. 종이에 적었다면 대화창에 옮겨 적는다.&lt;/li&gt;&lt;li&gt;처리 순서를 바탕으로 AI가 평소 업무 과정과 판단 기준을 파악하도록 인터뷰한다. 답변을 모아 내 업무 스타일·프로세스 보고서로 정리하는 것이 목적임을 안내한다. 질문이 처리 순서를 벗어나면 ‘위 업무 처리 순서대로 단계별로 질문해줘’를 덧붙인다.&lt;/li&gt;&lt;li&gt;평소 보고서를 시작하는 방법과 자료 확인 과정을 묻고 답하는 문답 두 차례를 보여준다. 오른쪽은 예시이며 실제 AI의 질문 문구는 달라질 수 있다.&lt;/li&gt;&lt;li&gt;수강생은 질문에 하나씩 답하며 평소 처리 과정과 판단 기준, 예외, 사용하는 형식과 문체, 직접 확인하는 부분을 설명한다. 앞선 실습에서 다시 설명한 메모도 답변에 활용한다.&lt;/li&gt;&lt;li&gt;같은 프로젝트의 같은 대화에서 계속한다. 수업 시간에 맞춰 인터뷰를 마치고 ‘이제 정리해줘’로 내 업무 스타일·프로세스 보고서 작성을 요청한 뒤 다음 장표에서 검토한다.&lt;/li&gt;&lt;li&gt;프로젝트를 사용할 수 없으면 일반 대화에서 인터뷰하고, 마지막 지침 저장 장표의 대안을 따른다. 응답 제한 시 준비한 인터뷰 기록과 보고서 예시로 설명한다.&lt;/li&gt;&lt;/ul&gt;">
   <header class="slide-header">
     <h2 class="title" id="s11-title" data-anim="fade-in" style="--d:0">시연·실습 — 내 업무 과정을 파악하는 AI 인터뷰</h2>
     <p class="message">처리 순서를 먼저 주고, 인터뷰로 평소 업무 과정을 설명해 보고서로 정리한다.</p>
@@ -5227,24 +5395,24 @@ section.slide.m4-a-s53 pre.prompt, section.slide.m4-a-s56 pre.prompt { font-size
       <aside class="card-cream m1n-request" data-anim="fade-up" style="--d:2">
         <div class="prompt-block">
           <p class="caption">인터뷰 요청 · 처리 순서를 붙여 넣은 같은 대화에 입력</p>
-          <pre class="prompt"><code>평소 내가 이 업무를 어떻게 하는지 파악해서 보고서로 정리해줘. 인터뷰로 한 번에 하나씩 질문하고 내 답변을 기다려줘.</code></pre>
+          <pre class="prompt"><code>평소 내가 보고서 작성 업무를 어떻게 하는지 파악해서 보고서로 정리해줘. 인터뷰로 한 번에 하나씩 질문하고 내 답변을 기다려줘.</code></pre>
         </div>
       </aside>
     </div>
     <aside class="card-soft m1n-dialogue-panel" aria-label="AI 질문과 내 답변 두 차례 예시" data-anim="fade-up" style="--d:3">
       <h3>평소 업무 과정을 묻고 답하기</h3>
-      <p class="caption">주간 업무보고 작성 과정 · 문답 2회 예시</p>
+      <p class="caption">보고서 작성 과정 · 문답 2회 예시</p>
       <ol class="m1n-dialogue">
         <li class="m1n-turn--ai"><span class="m1n-speaker">AI</span><p class="body">이 업무는 보통 무엇부터 시작하나요?</p></li>
-        <li><span class="m1n-speaker">나</span><p class="body">부서별 실적·이슈·다음 주 계획 메모를 받아요.</p></li>
-        <li class="m1n-turn--ai"><span class="m1n-speaker">AI</span><p class="body">자료가 빠진 부서는 평소 어떻게 처리하나요?</p></li>
-        <li><span class="m1n-speaker">나</span><p class="body">미제출 부서는 ‘확인 필요’로 표시해요.</p></li>
+        <li><span class="m1n-speaker">나</span><p class="body">보고 주제와 보고 대상을 먼저 정해요.</p></li>
+        <li class="m1n-turn--ai"><span class="m1n-speaker">AI</span><p class="body">조사한 자료는 어떻게 확인하나요?</p></li>
+        <li><span class="m1n-speaker">나</span><p class="body">출처·기준일이 없으면 ‘확인 필요’로 표시해요.</p></li>
       </ol>
     </aside>
   </div>
   <p class="body m1n-next" data-anim="fade-up" style="--d:4">인터뷰 후 ‘이제 정리해줘’ → 다음 장표에서 내 업무 스타일·프로세스 보고서 작성·검토</p>
 </section>
-<section class="slide m1-b-slide m1-s15"  aria-labelledby="s12-title" data-notes="&lt;ul&gt;&lt;li&gt;진행 구간: 00:39~00:43. 소요 시간: 4분.&lt;/li&gt;&lt;li&gt;같은 인터뷰 대화에 정리 프롬프트를 보낸다. 앞 장표에서 ‘이제 정리해줘’만 보냈다면 이 요청으로 보고서의 형식을 구체화한다.&lt;/li&gt;&lt;li&gt;작성 대상은 주간 업무보고 본문이 아니라 나의 업무 스타일·프로세스 보고서다. AI에게 지시하는 문장으로 작성하고, 다음 장표에서 검토한 본문을 프로젝트 지침에 그대로 붙여 넣는다.&lt;/li&gt;&lt;li&gt;이번 회차 날짜·보고 기간·실적 수치는 제외한다. 매주 금요일, A4 1쪽처럼 반복 적용할 주기·형식 규칙은 유지한다.&lt;/li&gt;&lt;li&gt;빠진 단계, 임의로 추가된 기준, 잘못된 순서, 이번 회차 값 포함 여부를 확인한다. 실제와 다른 부분을 직접 지적하고 수정된 보고서를 다시 확인한다.&lt;/li&gt;&lt;li&gt;미확인 사항이 확정 규칙으로 적용되지 않도록 구분한다. 저장할 때는 검토한 보고서 본문만 복사한다.&lt;/li&gt;&lt;/ul&gt;">
+<section class="slide m1-b-slide m1-s15"  aria-labelledby="s12-title" data-notes="&lt;ul&gt;&lt;li&gt;진행 구간: 00:39~00:43. 소요 시간: 4분.&lt;/li&gt;&lt;li&gt;같은 인터뷰 대화에 정리 프롬프트를 보낸다. 앞 장표에서 ‘이제 정리해줘’만 보냈다면 이 요청으로 보고서의 형식을 구체화한다.&lt;/li&gt;&lt;li&gt;작성 대상은 보고서 본문이 아니라 나의 업무 스타일·프로세스 보고서다. AI에게 지시하는 문장으로 작성하고, 다음 장표에서 검토한 본문을 프로젝트 지침에 그대로 붙여 넣는다.&lt;/li&gt;&lt;li&gt;이번 회차 날짜·보고 기간·실적 수치는 제외한다. A4 1쪽·개조식처럼 반복 적용할 주기·형식 규칙은 유지한다.&lt;/li&gt;&lt;li&gt;빠진 단계, 임의로 추가된 기준, 잘못된 순서, 이번 회차 값 포함 여부를 확인한다. 실제와 다른 부분을 직접 지적하고 수정된 보고서를 다시 확인한다.&lt;/li&gt;&lt;li&gt;미확인 사항이 확정 규칙으로 적용되지 않도록 구분한다. 저장할 때는 검토한 보고서 본문만 복사한다.&lt;/li&gt;&lt;/ul&gt;">
   <header class="slide-header" data-anim="fade-in" style="--d:0">
     <h2 class="title" id="s12-title">실습 안내 — 업무 스타일·프로세스 보고서 작성·검토</h2>
     <p class="message">반복할 규칙을 검토·수정해, 그대로 프로젝트 지침에 쓸 보고서를 만든다.</p>
@@ -5288,7 +5456,7 @@ section.slide.m4-a-s53 pre.prompt, section.slide.m4-a-s56 pre.prompt { font-size
     <div class="s17-steps">
       <article class="s17-step card-soft" data-anim="fade-up" style="--d:1">
         <h3 class="s17-step-heading"><span class="num">1</span>인터뷰한 프로젝트 열기</h3>
-        <p class="body">인터뷰를 진행한 프로젝트 열기<br>프로젝트명·인터뷰 대화 확인<br>예: 주간 업무보고 작성</p>
+        <p class="body">인터뷰를 진행한 프로젝트 열기<br>프로젝트명·인터뷰 대화 확인<br>예: 보고서 작성</p>
         <figure class="shot">
           <div class="shot-window" aria-hidden="true">
             <div class="shot-toolbar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span></div>
@@ -5362,6 +5530,43 @@ section.slide.m4-a-s53 pre.prompt, section.slide.m4-a-s56 pre.prompt { font-size
     <li><span class="s20-agenda-number">②</span><span>프로젝트 지침과 스킬의 차이</span></li>
     <li><span class="s20-agenda-number">③</span><span>HWPX 스킬 설치·사용</span></li>
   </ol>
+</section>
+<section class="slide m2-slide m2-ways" aria-labelledby="m2-ways-title" data-notes="&lt;ul&gt;&lt;li&gt;진행 시간: 2분.&lt;/li&gt;&lt;li&gt;스킬을 준비하는 두 가지 방법을 비교한다. 내 업무 절차로 새로 만들 때는 /skill-creator, 강사·동료가 배포한 스킬을 받아 쓸 때는 ZIP 업로드를 선택한다.&lt;/li&gt;&lt;li&gt;왼쪽: 채팅창에 /skill-creator 입력 → 질문에 답하기 → 초안 시험·수정 → 저장(자동 설치) 순서로 설명한다. 자세한 여섯 단계는 장표 18에서 확인하고, 직접 만드는 실습은 모듈4로 연결한다. 호출·저장 방식은 수업 계정에서 사전 확인한다.&lt;/li&gt;&lt;li&gt;오른쪽: SKILL.md가 포함된 스킬 폴더를 ZIP으로 받아 계정의 스킬 메뉴에서 업로드하고 목록에서 켠다. 오늘 사용할 HWPX 스킬 ZIP의 업로드는 장표 22에서 진행한다. scripts/는 필요한 실행 코드를 담는 선택 폴더다.&lt;/li&gt;&lt;li&gt;설정 등 메뉴의 위치·명칭과 업로드 경로는 단정하지 않고 실제 계정 화면으로 확인한다.&lt;/li&gt;&lt;li&gt;Claude 무료 계정의 스킬 메뉴·업로드 가능 여부는 수업 전 확인 [화면 확인 필요]&lt;/li&gt;&lt;/ul&gt;">
+  <header class="slide-header" data-anim="fade-in" style="--d:0">
+    <h2 class="title" id="m2-ways-title">스킬을 만드는 두 가지 방법</h2>
+    <p class="message">내 업무에 맞게 새로 만들거나, 배포된 ZIP을 받아 사용합니다.</p>
+  </header>
+  <div class="m2-ways-content">
+    <div class="m2-ways-cards">
+      <article class="card-soft m2-ways-card" aria-labelledby="m2-ways-create-title" data-anim="fade-up" style="--d:1">
+        <div class="m2-ways-heading">
+          <span class="num" aria-hidden="true">1</span>
+          <h3 id="m2-ways-create-title">/skill-creator로 대화하며 만들기</h3>
+        </div>
+        <p class="body"><strong>이럴 때</strong><br>내 업무 절차로 새 스킬을 만들 때</p>
+        <p class="body m2-ways-flow">채팅창에 <code>/skill-creator</code> 입력<br>→ 질문에 답하기 → 초안 시험·수정<br>→ <strong>저장(자동 설치)</strong></p>
+        <p class="body m2-ways-example"><code>/skill-creator 를 사용해서 hwpx 작성 스킬 만들어줘</code></p>
+        <p class="caption m2-ways-next">자세히: 장표 18 ‘여섯 단계’ · 모듈4 실습</p>
+      </article>
+      <article class="card-cream m2-ways-card" aria-labelledby="m2-ways-upload-title" data-anim="fade-up" style="--d:2">
+        <div class="m2-ways-heading">
+          <span class="num" aria-hidden="true">2</span>
+          <h3 id="m2-ways-upload-title">ZIP 파일 업로드</h3>
+        </div>
+        <p class="body"><strong>이럴 때</strong><br>강사·동료가 배포한 스킬을 그대로 쓸 때</p>
+        <p class="body m2-ways-flow">스킬 폴더를 ZIP으로 받기(SKILL.md 포함)<br>→ 계정의 스킬 메뉴에서 업로드<br>→ <strong>목록에서 켜기</strong></p>
+        <div class="m2-ways-detail">
+          <pre class="m2-ways-tree" aria-label="hwpx-skill.zip 안의 hwpx 폴더에 SKILL.md 파일과 scripts 폴더 포함"><code>hwpx-skill.zip
+└─ hwpx/
+   ├─ SKILL.md
+   └─ scripts/</code></pre>
+          <p class="caption m2-ways-check">설정 등 메뉴 위치·업로드 가능 여부 [화면 확인 필요]</p>
+        </div>
+        <p class="caption m2-ways-next">오늘 실습: HWPX 스킬 ZIP · 장표 22에서 업로드</p>
+      </article>
+    </div>
+    <p class="m2-ways-summary" data-anim="fade-in" style="--d:3"><strong>만들기</strong> = skill-creator · <strong>받아서 쓰기</strong> = ZIP 업로드</p>
+  </div>
 </section>
 <section class="slide m2-slide m2-s21" aria-labelledby="s16-title" data-notes="&lt;ul&gt;&lt;li&gt;스킬은 폴더 하나이며 SKILL.md가 필수다. hwpx-writer는 구조 설명용 예시다. 앞에서 살펴본 scripts 폴더와 필수 지침 파일의 관계를 확인한다.&lt;/li&gt;&lt;li&gt;SKILL.md 맨 위 YAML 머리말에는 name과 description을 적고, 아래에는 마크다운으로 작업 순서와 규칙을 적는다. Claude는 평소 이름과 설명을 보고 있다가 관련 요청에서 본문을 읽는다.&lt;/li&gt;&lt;li&gt;scripts, references, assets는 선택 폴더다. 실행 코드나 양식 없이 지침만으로 구성할 수도 있다.&lt;/li&gt;&lt;li&gt;폴더를 ZIP으로 묶어 스킬 메뉴에 업로드하면 개인 목록에 등록되고 켜고 끌 수 있다. 공식 안내 경로는 맞춤 설정(Customize) → 스킬(Skills)이며 실제 메뉴 명칭과 위치는 수업 계정에서 확인한다. [화면 확인 필요]&lt;/li&gt;&lt;li&gt;근거: https://support.claude.com/en/articles/12512198-how-to-create-custom-skills 및 https://support.claude.com/en/articles/12512180-use-skills-in-claude&lt;/li&gt;&lt;/ul&gt;">
   <header class="slide-header" data-anim="fade-in" style="--d:0">
@@ -5623,76 +5828,29 @@ description: HWPX 양식에 맞춰 문서를 작성할 때 사용
     <p class='caption s28-sequence'>ZIP 업로드 → 목록 확인 → 활성화</p>
   </div>
 </section>
-<section class="slide s29-slide"  data-notes="&lt;ul&gt;&lt;li&gt;진행 시간: 01:34~01:37, 소요 시간: 3분.&lt;/li&gt;&lt;li&gt;Claude 새 대화를 열고 ChatGPT에 저장한 모듈1 지침 내용을 붙여넣거나 첨부한 뒤 교육운영계획_양식.hwpx와 교육운영_메모.txt를 첨부한다.&lt;/li&gt;&lt;li&gt;이번 실습은 두 파일을 공통으로 사용해 오류와 결과를 비교하기 쉽게 운영한다.&lt;/li&gt;&lt;li&gt;HWP 파일의 확장자만 바꾸지 않고 실제 HWPX 형식의 양식을 준비한다.&lt;/li&gt;&lt;li&gt;왼쪽은 한글의 빈 양식 캡처 자리이며 제목·개요·운영계획·기대효과 영역을 표시한다. 양식은 구조를 제공하고 메모는 업무 내용을 제공한다.&lt;/li&gt;&lt;li&gt;무료 계정의 파일 업로드 제한 시 지침·메모는 본문에 붙여넣고, 양식 구조는 강사 화면·준비된 항목표로 확인한다. 메시지 입력도 제한되면 준비된 입력 확인 결과로 진행한다. 첨부 가능 형식·한도는 사전 확인한다. [화면 확인 필요]&lt;/li&gt;&lt;li&gt;완료 기준: 모듈1 지침 전달, 양식·메모 두 파일 첨부, 강사·예산 미정 확인.&lt;/li&gt;&lt;/ul&gt;" aria-labelledby="s22-title">
+<section class="slide s29-slide"  data-notes="&lt;ul&gt;&lt;li&gt;진행 시간: 01:34~01:37, 소요 시간: 3분.&lt;/li&gt;&lt;li&gt;Claude 새 대화를 열고 ChatGPT에 저장한 모듈1 지침 내용을 붙여넣거나 첨부한 뒤 원본_샘플양식.hwpx와 제안요청서_메모.txt를 첨부한다.&lt;/li&gt;&lt;li&gt;이번 실습은 평생학습관의 회계감사인 선임 제안 요청서를 두 파일로 작성해 오류와 결과를 비교한다.&lt;/li&gt;&lt;li&gt;HWP 파일의 확장자만 바꾸지 않고 실제 HWPX 형식의 양식을 준비한다.&lt;/li&gt;&lt;li&gt;왼쪽은 한글의 원본_샘플양식.hwpx 캡처 자리다. 표지·목차·서식 안내만 있는 양식은 구조를 제공하고, 제안요청서_메모.txt는 작성할 내용을 제공한다.&lt;/li&gt;&lt;li&gt;무료 계정의 파일 업로드 제한 시 지침·메모는 본문에 붙여넣고, 양식 구조는 강사 화면·준비된 항목표로 확인한다. 메시지 입력도 제한되면 준비된 입력 확인 결과로 진행한다. 첨부 가능 형식·한도는 사전 확인한다. [화면 확인 필요]&lt;/li&gt;&lt;li&gt;완료 기준: 모듈1 지침 전달, 양식·메모 두 파일 첨부, 추정 계약금액·PT 일자 미정 확인.&lt;/li&gt;&lt;/ul&gt;" aria-labelledby="s22-title">
   <header class="slide-header s29-header">
     <h2 class="title" id="s22-title" data-anim="fade-in" style="--d:0">실습 안내 — 양식과 작성 재료 준비</h2>
     <p class="message">문서의 모양을 정하는 양식과 내용을 정하는 자료를 함께 준비한다.</p>
   </header>
-  <div class="flow s29-steps" role="list" aria-label="실습 준비 순서">
-    <div class="flow-step" role="listitem"><span class="num">1</span><span class="s29-step-text">Claude<br>새 대화 열기</span></div>
-    <span class="flow-arrow" aria-hidden="true">›</span>
-    <div class="flow-step" role="listitem"><span class="num">2</span><span class="s29-step-text">ChatGPT에 저장한 모듈1 지침<br>붙여넣기 또는 첨부</span></div>
-    <span class="flow-arrow" aria-hidden="true">›</span>
-    <div class="flow-step" role="listitem"><span class="num">3</span><span class="s29-step-text">교육운영계획_양식.hwpx<br>교육운영_메모.txt 첨부</span></div>
-  </div>
+
   <div class="s29-materials">
-    <article class="card-soft s29-form" data-anim="slide-right" style="--d:1;margin: 0 auto; width: 500px;" aria-label="문서 구조를 정하는 양식">
-      <h3 class="s29-file">교육운영계획_양식.hwpx</h3>
+    <article class="card-soft s29-form" data-anim="slide-right" style="--d:1; width: 366px;" aria-label="문서 구조를 정하는 양식">
+      <h3 class="s29-file">원본_샘플양식.hwpx</h3>
       <div class="s29-preview">
-        <figure class="shot"><div class="shot-window" aria-hidden="true"><div class="shot-toolbar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span></div><div class="shot-wireframe"><div class="shot-sidebar"><div class="shot-line"></div><div class="shot-line short"></div></div><div><div class="shot-line short"></div><div class="shot-line"></div><div class="shot-block"><div class="shot-line"></div><div class="shot-line medium"></div></div></div></div></div><figcaption>캡처: 한글의 빈 교육운영계획 양식</figcaption></figure>
-        
+        <figure class="shot"><div class="shot-window" aria-hidden="true"><div class="shot-toolbar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span></div><div class="shot-wireframe"><div class="shot-sidebar"><div class="shot-line"></div><div class="shot-line short"></div></div><div><div class="shot-line short"></div><div class="shot-line"></div><div class="shot-block"><div class="shot-line"></div><div class="shot-line medium"></div></div></div></div></div><figcaption>캡처: 한글의 원본_샘플양식.hwpx</figcaption></figure>
       </div>
     </article>
-
-
-  </div>
-</section>
-<section class="slide s30-slide"  data-notes="&lt;ul&gt;&lt;li&gt;진행 시간: 01:37~01:41, 소요 시간: 4분.&lt;/li&gt;&lt;li&gt;양식·메모를 첨부한 상태에서 아래 한 줄 요청을 보내고, 생성된 내용이 양식 항목과 메모에 맞는지 확인한다.&lt;/li&gt;&lt;li&gt;요청문은 사용할 스킬과 첨부 양식·txt 파일의 역할을 짧게 전달한다. 상세 작성 기준은 앞서 전달한 지침과 스킬을 사용한다.&lt;/li&gt;&lt;li&gt;문장 길이보다 필요한 정보가 빠짐없이 들어갔는지 확인한다.&lt;/li&gt;&lt;li&gt;오른쪽 대응표는 검토용 예시다. 양식의 항목명이 예시와 다르면 실제 양식을 기준으로 대응하도록 안내한다.&lt;/li&gt;&lt;li&gt;메모에 기대효과의 구체적인 내용은 없으므로 임의로 작성하지 않고 확인 필요로 남긴다. 강사와 예산도 [확인 필요]로 표시한다.&lt;/li&gt;&lt;li&gt;Claude 메시지·파일 업로드 제한으로 작성안을 받지 못하면 강사 화면과 준비된 항목별 작성안·미확인 사항 목록으로 검토를 이어간다.&lt;/li&gt;&lt;li&gt;완료 기준: 양식 항목과 작성 내용의 대응 확인, 임의로 추가한 사실 없음.&lt;/li&gt;&lt;/ul&gt;" aria-labelledby="s23-title">
-  <header class="slide-header s30-header">
-    <h2 class="title" id="s23-title" data-anim="fade-in" style="--d:0">실습 안내 — HWPX 작성 요청 설계</h2>
-    <p class="message">첨부 양식과 txt 파일을 지정해 HWPX 작성을 요청한다.</p>
-  </header>
-  <div class="flow s30-steps" role="list" aria-label="요청과 검토 순서">
-    <div class="flow-step" role="listitem"><span class="num">1</span><span>아래 요청 복사</span></div>
-    <span class="flow-arrow" aria-hidden="true">›</span>
-    <div class="flow-step" role="listitem"><span class="num">2</span><span>양식·메모 확인</span></div>
-    <span class="flow-arrow" aria-hidden="true">›</span>
-    <div class="flow-step" role="listitem"><span class="num">3</span><span>항목별 작성 내용 검토</span></div>
-  </div>
-  <div class="s30-main">
-    <article class="card-soft s30-request" data-anim="fade-up" style="--d:1" aria-label="HWPX 작성 요청문">
-      <h3 class="s30-request-title">복사할 요청문</h3>
-      <div class="s30-zones">
-        <div class="prompt-block s30-zone">
-          <pre class="prompt"><code>/hwpx 첨부된 hwpx 양식에 txt 파일 내용 작성</code></pre>
-        </div>
-        
-        
-        
-        
+    <article class="card-soft s29-request" data-anim="fade-up" style="--d:2" aria-label="HWPX 작성 요청문">
+      <h3 class="s29-file">복사할 요청문</h3>
+      <div class="prompt-block s30-zone">
+        <pre class="prompt"><code>/hwpx 첨부된 hwpx 양식에 보고서 내용 작성</code></pre>
       </div>
+      <p class="s29-request-caption">양식·메모 첨부 후 그대로 입력</p>
     </article>
-    <aside class="s30-map-card" aria-label="양식 항목별 작성안 검토 예시">
-      <h3 class="s30-map-title">양식 항목 ↔ 작성 내용 예시</h3>
-      <div class="s30-table-wrap">
-        <table class="table s30-map" aria-label="양식 항목과 작성 내용의 대응표">
-          <thead><tr><th scope="col">항목</th><th scope="col">메모와 대조할 내용</th></tr></thead>
-          <tbody data-anim="stagger" style="--d:2">
-            <tr><th scope="row">제목</th><td>민원·고객 응대 개선 교육</td></tr>
-            <tr><th scope="row">개요</th><td>실무자 40명 · 3층 교육장<br>2026.11.20. 14:00~16:00</td></tr>
-            <tr><th scope="row">운영계획</th><td>응대 사례 공유·상황별 역할 연습<br>담당: 교육운영팀</td></tr>
-            <tr><th scope="row">기대효과</th><td>[확인 필요]</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="s30-unconfirmed">강사·예산 → [확인 필요]</p>
-    </aside>
-  </div>
-  <div class="s30-bottom">
-    <p class="caption">양식과 txt 파일을 첨부하고 한 줄로 요청</p>
   </div>
 </section>
-<section class='slide s31-slide'  data-notes="&lt;ul&gt;&lt;li&gt;진행 시간: 01:41~01:45, 소요 시간 4분.&lt;/li&gt;&lt;li&gt;생성 대기 중에는 작성안의 날짜·인원·미정 정보를 재확인하도록 안내.&lt;/li&gt;&lt;li&gt;코드 실행·파일 생성 기능을 사용할 수 있고 사용량 제한이 없는 경우, 응답에 본문만 있으면 HWPX 파일 생성·다운로드 제공을 구체적으로 재요청. [화면 확인 필요]&lt;/li&gt;&lt;li&gt;Claude 무료 계정은 코드 실행·파일 생성·메시지 수·파일 업로드가 제한될 수 있음. 생성이 막히거나 지연되면 강사 생성 화면을 보고, 사전 배포한 ‘교육운영계획_초안.hwpx’를 받아 다음 검수 단계로 진행. [화면 확인 필요]&lt;/li&gt;&lt;/ul&gt;" aria-labelledby="s24-title">
+<section class='slide s31-slide'  data-notes="&lt;ul&gt;&lt;li&gt;진행 시간: 01:41~01:45, 소요 시간 4분.&lt;/li&gt;&lt;li&gt;생성 대기 중에는 작성안의 마감일·배점·미정 정보를 재확인하도록 안내.&lt;/li&gt;&lt;li&gt;코드 실행·파일 생성 기능을 사용할 수 있고 사용량 제한이 없는 경우, 응답에 본문만 있으면 HWPX 파일 생성·다운로드 제공을 구체적으로 재요청. [화면 확인 필요]&lt;/li&gt;&lt;li&gt;Claude 무료 계정은 코드 실행·파일 생성·메시지 수·파일 업로드가 제한될 수 있음. 생성이 막히거나 지연되면 강사 생성 화면을 보고, 사전 배포한 ‘제안요청서_초안.hwpx’를 받아 다음 검수 단계로 진행. [화면 확인 필요]&lt;/li&gt;&lt;/ul&gt;" aria-labelledby="s24-title">
   <div class='s31-layout'>
     <header class='slide-header'>
       <h2 class='title' id='s24-title' data-anim='fade-in' style='--d:0'>실습 안내 — HWPX 생성·다운로드</h2>
@@ -5712,7 +5870,7 @@ description: HWPX 양식에 맞춰 문서를 작성할 때 사용
         </article>
         <article class='card-cream s31-capture'>
           <h3>내 PC에서 파일 이름·확장자 확인</h3>
-          <figure class='shot'><div class='shot-window' aria-hidden='true'><div class='shot-toolbar'><span class='shot-dot'></span><span class='shot-dot'></span><span class='shot-dot'></span></div><div class='shot-wireframe'><div class='shot-sidebar'><div class='shot-line'></div><div class='shot-line short'></div></div><div><div class='shot-line short'></div><div class='shot-line'></div><div class='shot-block'><div class='shot-line'></div><div class='shot-line medium'></div></div></div></div></div><figcaption>캡처: 다운로드된 교육운영계획_초안.hwpx의 이름·확장자</figcaption></figure>
+          <figure class='shot'><div class='shot-window' aria-hidden='true'><div class='shot-toolbar'><span class='shot-dot'></span><span class='shot-dot'></span><span class='shot-dot'></span></div><div class='shot-wireframe'><div class='shot-sidebar'><div class='shot-line'></div><div class='shot-line short'></div></div><div><div class='shot-line short'></div><div class='shot-line'></div><div class='shot-block'><div class='shot-line'></div><div class='shot-line medium'></div></div></div></div></div><figcaption>캡처: 다운로드된 제안요청서_초안.hwpx의 이름·확장자</figcaption></figure>
         </article>
       </div>
       <div class='s31-evidence-meta'>
@@ -5722,7 +5880,7 @@ description: HWPX 양식에 맞춰 문서를 작성할 때 사용
     </div>
   </div>
 </section>
-<section class='slide s32-slide'  data-notes="&lt;ul&gt;&lt;li&gt;진행 시간: 01:45~01:49, 소요 시간 4분.&lt;/li&gt;&lt;li&gt;내용 비교는 Claude의 도움을 받되, 표 넘침과 페이지 배치는 사람이 화면에서 직접 확인.&lt;/li&gt;&lt;li&gt;수정 요청에는 ‘어디가 어떻게 잘못됐는지’를 위치와 함께 기록하도록 지도.&lt;/li&gt;&lt;li&gt;앞선 생성·다운로드 단계에서 코드 실행·파일 생성이 제한된 수강생은 준비된 ‘교육운영계획_초안.hwpx’를 한글에서 열어 같은 점검표로 검수. Claude 메시지·업로드 제한 시 원본 메모와 직접 대조하고 강사 화면·준비된 대조표로 확인.&lt;/li&gt;&lt;/ul&gt;" aria-labelledby="s25-title">
+<section class='slide s32-slide'  data-notes="&lt;ul&gt;&lt;li&gt;진행 시간: 01:45~01:49, 소요 시간 4분.&lt;/li&gt;&lt;li&gt;내용 비교는 Claude의 도움을 받되, 표 넘침과 페이지 배치는 사람이 화면에서 직접 확인.&lt;/li&gt;&lt;li&gt;감사 기간 2027~2029, 마감 2026.03.06. 17:00, 기술 90점·가격 10점, Ⅴ장 일정표 4건을 대조한다. 추정 계약금액·PT 일자는 [확인 필요]로 남긴다.&lt;/li&gt;&lt;li&gt;□ 헤드라인M 15pt / ○·- 휴먼명조 14pt / ※ 11pt 위계를 유지하고 ‘헤드라인M 폰트_15 POINT’ 같은 서식 안내 문구가 지워졌는지 확인한다. 표·목차 잘림과 불필요한 빈 페이지를 확인한다.&lt;/li&gt;&lt;li&gt;수정 요청에는 ‘어디가 어떻게 잘못됐는지’를 위치와 함께 기록하도록 지도.&lt;/li&gt;&lt;li&gt;앞선 생성·다운로드 단계에서 코드 실행·파일 생성이 제한된 수강생은 준비된 ‘제안요청서_초안.hwpx’를 한글에서 열어 같은 점검표로 검수. Claude 메시지·업로드 제한 시 원본 메모와 직접 대조하고 강사 화면·준비된 대조표로 확인.&lt;/li&gt;&lt;/ul&gt;" aria-labelledby="s25-title">
   <div class='s32-layout'>
     <header class='slide-header'>
       <h2 class='title' id='s25-title' data-anim='fade-in' style='--d:0'>실습 안내 — 한글에서 내용·서식 검수</h2>
@@ -5737,7 +5895,7 @@ description: HWPX 양식에 맞춰 문서를 작성할 때 사용
     <div class='s32-evidence' data-anim='fade-up' style='--d:4'>
       <div class='card-soft s32-preview'>
         <div class='s32-pair'>
-          <figure class='shot'><div class='shot-window' aria-hidden='true'><div class='shot-toolbar'><span class='shot-dot'></span><span class='shot-dot'></span><span class='shot-dot'></span></div><div class='shot-wireframe'><div class='shot-sidebar'><div class='shot-line'></div><div class='shot-line short'></div></div><div><div class='shot-line short'></div><div class='shot-line'></div><div class='shot-block'><div class='shot-line'></div><div class='shot-line medium'></div></div></div></div></div><figcaption>캡처: 한글의 전체 페이지 미리보기</figcaption></figure>
+          <figure class='shot'><div class='shot-window' aria-hidden='true'><div class='shot-toolbar'><span class='shot-dot'></span><span class='shot-dot'></span><span class='shot-dot'></span></div><div class='shot-wireframe'><div class='shot-sidebar'><div class='shot-line'></div><div class='shot-line short'></div></div><div><div class='shot-line short'></div><div class='shot-line'></div><div class='shot-block'><div class='shot-line'></div><div class='shot-line medium'></div></div></div></div></div><figcaption>캡처: 한글의 제안요청서 전체 페이지 미리보기</figcaption></figure>
         </div>
         <p class='caption'>AI의 점검 결과와 실제 문서 화면을 함께 확인</p>
       </div>
@@ -5745,19 +5903,19 @@ description: HWPX 양식에 맞춰 문서를 작성할 때 사용
         <div class='s32-check-group'>
           <h3>내용 점검</h3>
           <ul aria-label='내용 점검 항목'>
-            <li>40명</li>
-            <li>날짜·시간</li>
-            <li>장소</li>
-            <li>강사·예산<br>‘확인 필요’</li>
+            <li>감사 기간<br>2027~2029 통일</li>
+            <li>마감 03.06.<br>배점 90:10</li>
+            <li>일정표 4건</li>
+            <li>계약금액·PT일자<br>‘확인 필요’</li>
           </ul>
         </div>
         <div class='s32-check-group'>
           <h3>서식 점검</h3>
           <ul aria-label='서식 점검 항목'>
-            <li>표 잘림</li>
-            <li>글자 겹침</li>
+            <li>□○-※<br>서식 위계 유지</li>
+            <li>서식 안내 문구 삭제</li>
+            <li>표·목차 잘림</li>
             <li>불필요한 빈 페이지</li>
-            <li>남은 예시 문구</li>
           </ul>
         </div>
       </div>
@@ -5780,7 +5938,7 @@ description: HWPX 양식에 맞춰 문서를 작성할 때 사용
       </div>
       <article class="s34-result" data-anim="fade-in" style="--d:4">
         <h3>최종 HWPX 1개 확인</h3>
-        <figure class="shot"><div class="shot-window" aria-hidden="true"><div class="shot-toolbar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span></div><div class="shot-wireframe"><div class="shot-sidebar"><div class="shot-line"></div><div class="shot-line short"></div></div><div><div class="shot-line short"></div><div class="shot-line"></div><div class="shot-block"><div class="shot-line"></div><div class="shot-line medium"></div></div></div></div></div><figcaption>캡처: 교육운영계획_최종.hwpx</figcaption></figure>
+        <figure class="shot"><div class="shot-window" aria-hidden="true"><div class="shot-toolbar"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span></div><div class="shot-wireframe"><div class="shot-sidebar"><div class="shot-line"></div><div class="shot-line short"></div></div><div><div class="shot-line short"></div><div class="shot-line"></div><div class="shot-block"><div class="shot-line"></div><div class="shot-line medium"></div></div></div></div></div><figcaption>캡처: 제안요청서_최종.hwpx</figcaption></figure>
         <ul class="s34-checks" aria-label="완료 확인 항목">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg><span>다운로드</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg><span>정상 열기</span></li>
@@ -6100,7 +6258,6 @@ description: HWPX 양식에 맞춰 문서를 작성할 때 사용
           <p>010-1234-5678 → 010-****-5678</p>
           <p>02-345-6789 → 02-***-6789</p>
         </div>
-        <p class="m23-hint">앞에서 쓴 요청 방식 그대로</p>
       </article>
       <figure class="shot m23-shot" data-anim="fade-in" style="--d:3">
         <div class="shot-window" aria-hidden="true">
@@ -6919,9 +7076,19 @@ PPT 제작 전문가 스킬을 새로 만들어줘.
         <button class="nav-button" id="fullscreen-toggle" type="button" aria-label="전체 화면" title="전체 화면 (F)" aria-pressed="false">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"></path></svg>
         </button>
+        <button class="nav-button" id="overview-toggle" type="button" aria-label="전체 장표 보기" title="전체 보기 (G)" aria-controls="slide-overview" aria-expanded="false" aria-haspopup="dialog">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+        </button>
       </nav>
     </div>
   <div id="presentation-overlay" data-color="black" aria-hidden="true" hidden></div>
+  <div id="slide-overview" role="dialog" aria-modal="true" aria-labelledby="overview-title" hidden>
+    <div class="overview-header">
+      <h2 id="overview-title">전체 장표 (53)</h2>
+      <button id="overview-close" type="button" aria-label="전체 보기 닫기">닫기 (Esc)</button>
+    </div>
+    <div id="overview-grid"></div>
+  </div>
   </main>
   <aside
     class="notes-panel"
@@ -7007,6 +7174,12 @@ PPT 제작 전문가 스킬을 새로 만들어줘.
         notesPanel.scrollTop = 0;
       }
       function showSlide(index, replaceHash = false) {
+        const introTargetIndex = Math.max(0, Math.min(slides.length - 1, index));
+        const introTarget = slides[introTargetIndex];
+        if (introTarget.hasAttribute("data-steps")) {
+          const introSteps = Math.max(0, Math.trunc(Number(introTarget.dataset.steps) || 0));
+          introTarget.dataset.step = String(arguments[2] < 0 && introTargetIndex < currentIndex ? introSteps : 0);
+        }
         currentIndex = Math.max(0, Math.min(slides.length - 1, index));
         slides.forEach((slide, slideIndex) => {
           const active = slideIndex === currentIndex;
@@ -7029,11 +7202,21 @@ PPT 제작 전문가 스킬을 새로 만들어줘.
         }
       }
       function moveSlide(direction) {
-        const targetIndex = Math.max(
-          0,
-          Math.min(slides.length - 1, currentIndex + direction)
-        );
-        if (targetIndex !== currentIndex) showSlide(targetIndex);
+        const slide = slides[currentIndex];
+        if (slide.hasAttribute("data-steps")) {
+          const steps = Math.max(0, Math.trunc(Number(slide.dataset.steps) || 0));
+          const step = Math.max(0, Math.min(steps, Math.trunc(Number(slide.dataset.step) || 0)));
+          if (direction > 0 && step < steps) {
+            slide.dataset.step = String(step + 1);
+            return;
+          }
+          if (direction < 0 && step > 0) {
+            slide.dataset.step = String(step - 1);
+            return;
+          }
+        }
+        const targetIndex = Math.max(0, Math.min(slides.length - 1, currentIndex + direction));
+        if (targetIndex !== currentIndex) showSlide(targetIndex, false, direction);
       }
       function setNotesOpen(open) {
         if (open === !notesPanel.hidden) return;
@@ -7128,11 +7311,263 @@ PPT 제작 전문가 스킬을 새로 만들어줘.
       document.addEventListener("pointerdown", showPresentationControls, { passive: true });
       document.addEventListener("focusin", showPresentationControls);
       syncFullscreenButton();
+      const overview = document.getElementById("slide-overview");
+      const overviewToggle = document.getElementById("overview-toggle");
+      const overviewClose = document.getElementById("overview-close");
+      const overviewGrid = document.getElementById("overview-grid");
+      const overviewTitle = document.getElementById("overview-title");
+      const overviewItems = [];
+      let overviewFocusIndex = 0;
+      let overviewColumns = 1;
+      let overviewFrame = 0;
+      let overviewNeedsFocus = false;
+      let overviewInertState = [];
+      function isOverviewOpen() {
+        return !overview.hidden;
+      }
+      function cloneForOverview(source) {
+        const copy = source.cloneNode(true);
+        copy.removeAttribute("hidden");
+        copy.classList.remove("is-active", "anim-play");
+        copy.classList.add("overview-clone");
+        for (const node of [copy, ...copy.querySelectorAll("[id], [aria-labelledby], [aria-describedby], [autofocus]")]) {
+          node.removeAttribute("id");
+          node.removeAttribute("aria-labelledby");
+          node.removeAttribute("aria-describedby");
+          node.removeAttribute("autofocus");
+        }
+        copy.setAttribute("aria-hidden", "true");
+        copy.setAttribute("inert", "");
+        copy.querySelectorAll('code[data-anim="type"][data-motion-original]')
+          .forEach(node => { node.textContent = node.dataset.motionOriginal; });
+        copy.querySelectorAll('[data-anim="count"]').forEach(node => {
+          const value = Number(node.dataset.to);
+          node.textContent = String(Number.isFinite(value) ? Math.trunc(value) : 0) + (node.dataset.suffix || "");
+        });
+        copy.querySelectorAll("img").forEach(img => {
+          img.loading = "eager";
+          img.decoding = "async";
+        });
+        return copy;
+      }
+      function refreshOverview() {
+        overviewTitle.textContent = "전체 장표 (" + slides.length + ")";
+        if (!overviewItems.length) {
+          const fragment = document.createDocumentFragment();
+          slides.forEach((slide, index) => {
+            const heading = slide.querySelector("h1.title, h2.title") || slide.querySelector("h1, h2");
+            const title = heading?.textContent.replace(/\s+/g, " ").trim() || "제목 없음";
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "overview-card";
+            button.tabIndex = -1;
+            button.setAttribute("aria-label", "장표 " + (index + 1) + ": " + title);
+            button.title = title;
+            const thumb = document.createElement("span");
+            thumb.className = "overview-thumb";
+            thumb.setAttribute("aria-hidden", "true");
+            const caption = document.createElement("span");
+            caption.className = "overview-caption";
+            const number = document.createElement("span");
+            number.className = "overview-number";
+            number.textContent = String(index + 1);
+            const label = document.createElement("span");
+            label.className = "overview-label";
+            label.textContent = title;
+            caption.append(number, label);
+            button.append(thumb, caption);
+            button.addEventListener("focus", () => {
+              overviewFocusIndex = index;
+              overviewItems.forEach((item, i) => { item.button.tabIndex = i === index ? 0 : -1; });
+            });
+            button.addEventListener("click", () => {
+              toggleOverview(false);
+              showSlide(index);
+              focusDeck();
+            });
+            overviewItems.push({ button, thumb, imageKey: null });
+            fragment.appendChild(button);
+          });
+          overviewGrid.appendChild(fragment);
+        }
+        slides.forEach((slide, index) => {
+          const item = overviewItems[index];
+          const imageKey = Array.from(slide.querySelectorAll("img.dl-cap-img"), img => img.getAttribute("src") || "").join("\n");
+          if (item.imageKey !== imageKey) {
+            item.thumb.replaceChildren(cloneForOverview(slide));
+            item.imageKey = imageKey;
+          }
+        });
+      }
+      function syncOverviewCurrent() {
+        overviewItems.forEach((item, index) => {
+          if (index === currentIndex) item.button.setAttribute("aria-current", "true");
+          else item.button.removeAttribute("aria-current");
+        });
+      }
+      function focusOverviewItem(index, center = false) {
+        overviewFocusIndex = Math.max(0, Math.min(overviewItems.length - 1, index));
+        overviewItems.forEach((item, i) => { item.button.tabIndex = i === overviewFocusIndex ? 0 : -1; });
+        const button = overviewItems[overviewFocusIndex].button;
+        button.focus({ preventScroll: true });
+        button.scrollIntoView({ block: center ? "center" : "nearest", inline: "nearest", behavior: "instant" });
+      }
+      function layoutOverview() {
+        if (!isOverviewOpen() || !overviewItems.length) return;
+        const widths = overviewItems.map(item => item.thumb.getBoundingClientRect().width);
+        const firstTop = overviewItems[0].button.offsetTop;
+        const nextRow = overviewItems.findIndex(item => item.button.offsetTop > firstTop + 1);
+        overviewColumns = nextRow < 0 ? overviewItems.length : Math.max(1, nextRow);
+        overviewItems.forEach((item, index) => {
+          item.thumb.style.setProperty("--overview-scale", String(widths[index] / WIDTH));
+        });
+      }
+      function scheduleOverviewLayout(focusCurrent = false) {
+        if (!isOverviewOpen()) return;
+        overviewNeedsFocus ||= focusCurrent;
+        if (overviewFrame) return;
+        overviewFrame = requestAnimationFrame(() => {
+          overviewFrame = 0;
+          if (!isOverviewOpen()) return;
+          syncOverviewCurrent();
+          layoutOverview();
+          if (overviewNeedsFocus) {
+            overviewNeedsFocus = false;
+            focusOverviewItem(currentIndex, true);
+          }
+        });
+      }
+      function toggleOverview(open = !isOverviewOpen()) {
+        if (open === isOverviewOpen()) return;
+        if (open) {
+          if (!presentationOverlay.hidden) setPresentationBlank(null);
+          refreshOverview();
+          overview.hidden = false;
+          overviewToggle.setAttribute("aria-expanded", "true");
+          document.documentElement.classList.add("overview-open");
+          overviewInertState = [deck, notesPanel].map(element => [element, element.inert]);
+          overviewInertState.forEach(([element]) => { element.inert = true; });
+          syncOverviewCurrent();
+          layoutOverview();
+          focusOverviewItem(currentIndex, true);
+        } else {
+          cancelAnimationFrame(overviewFrame);
+          overviewFrame = 0;
+          overviewNeedsFocus = false;
+          overview.hidden = true;
+          overviewToggle.setAttribute("aria-expanded", "false");
+          document.documentElement.classList.remove("overview-open");
+          overviewInertState.forEach(([element, inert]) => { element.inert = inert; });
+          overviewInertState = [];
+          focusDeck();
+        }
+        showPresentationControls();
+      }
+      function handleOverviewKey(event) {
+        if (event.isComposing) return;
+        const key = event.key.toLowerCase();
+        if (key === "escape" || key === "g" || key === "o") {
+          event.preventDefault();
+          if (!event.repeat) {
+            if (!presentationOverlay.hidden) setPresentationBlank(null);
+            toggleOverview(false);
+          }
+          return;
+        }
+        if (key === "." || key === "b" || key === "w") {
+          event.preventDefault();
+          if (!event.repeat) {
+            const color = key === "w" ? "white" : "black";
+            const sameColor = !presentationOverlay.hidden && presentationOverlay.dataset.color === color;
+            setPresentationBlank(sameColor ? null : color);
+            if (sameColor) focusOverviewItem(overviewFocusIndex);
+          }
+          return;
+        }
+        if (key === "f" || key === "f5" || key === "n") {
+          event.preventDefault();
+          if (!event.repeat) {
+            if (key === "n") {
+              toggleOverview(false);
+              setNotesOpen(notesPanel.hidden);
+            } else if (key === "f" || !document.fullscreenElement) {
+              void toggleFullscreen();
+            }
+          }
+          return;
+        }
+        if (!presentationOverlay.hidden) {
+          event.preventDefault();
+          if (!event.repeat) {
+            setPresentationBlank(null);
+            focusOverviewItem(overviewFocusIndex);
+          }
+          return;
+        }
+        if (key === "tab") {
+          event.preventDefault();
+          if (document.activeElement === overviewClose) focusOverviewItem(overviewFocusIndex);
+          else overviewClose.focus({ preventScroll: true });
+          return;
+        }
+        const steps = { arrowleft: -1, arrowright: 1, arrowup: -overviewColumns, arrowdown: overviewColumns };
+        if (Object.prototype.hasOwnProperty.call(steps, key)) {
+          event.preventDefault();
+          focusOverviewItem(overviewFocusIndex + steps[key]);
+          return;
+        }
+        if (key === "home" || key === "end") {
+          event.preventDefault();
+          focusOverviewItem(key === "home" ? 0 : overviewItems.length - 1);
+          return;
+        }
+        if (key === "enter" || key === " " || event.code === "Space") {
+          event.preventDefault();
+          if (!event.repeat) {
+            if (document.activeElement === overviewClose) toggleOverview(false);
+            else overviewItems[overviewFocusIndex].button.click();
+          }
+          return;
+        }
+        if (key === "pageup" || key === "pagedown") {
+          event.preventDefault();
+          const rowHeight = overviewItems[0].button.offsetHeight + (parseFloat(getComputedStyle(overviewGrid).rowGap) || 0);
+          const rows = Math.max(1, Math.floor((overview.clientHeight - 100) / rowHeight));
+          focusOverviewItem(overviewFocusIndex + (key === "pagedown" ? 1 : -1) * rows * overviewColumns);
+          return;
+        }
+        if (key === "r" || key === "backspace") event.preventDefault();
+      }
+      overviewToggle.addEventListener("click", () => toggleOverview());
+      overviewClose.addEventListener("click", () => toggleOverview(false));
+      window.addEventListener("resize", () => scheduleOverviewLayout());
+      window.visualViewport?.addEventListener("resize", () => scheduleOverviewLayout());
+      document.addEventListener("fullscreenchange", () => scheduleOverviewLayout());
+      window.addEventListener("hashchange", () => scheduleOverviewLayout(true));
+      window.addEventListener("popstate", () => scheduleOverviewLayout(true));
+      if (typeof ResizeObserver === "function") {
+        const overviewResizeObserver = new ResizeObserver(() => scheduleOverviewLayout());
+        overviewResizeObserver.observe(overviewGrid);
+      }
       document.addEventListener("keydown", (event) => {
         if (
           event.defaultPrevented ||
           event.ctrlKey || event.metaKey || event.altKey
         ) return;
+        if (isOverviewOpen()) {
+          handleOverviewKey(event);
+          return;
+        }
+        if (!event.isComposing && ["g", "o"].includes(event.key.toLowerCase())) {
+          const overviewEditing = [...event.composedPath(), document.activeElement]
+            .some(element => element instanceof Element && (
+              element.isContentEditable || element.closest("input, textarea, select, [role='textbox']")
+            ));
+          if (overviewEditing) return;
+          event.preventDefault();
+          if (!event.repeat) toggleOverview();
+          return;
+        }
         const key = event.key.toLowerCase();
         if (key === "f5") {
           event.preventDefault();
@@ -7992,6 +8427,235 @@ PPT 제작 전문가 스킬을 새로 만들어줘.
   } else {
     window.addEventListener('load', init, { once: true });
   }
+})();
+</script>
+<script>
+(() => {
+  'use strict';
+  const section = document.querySelector('section.slide.m1-s07:not(.overview-clone)');
+  const form = section && section.querySelector('.m1-s07-form');
+  if (!form) return;
+  const task = form.querySelector('.m1-s07-task');
+  const list = form.querySelector('.m1-s07-process');
+  const addButton = form.querySelector('.m1-s07-add');
+  const copyButton = form.querySelector('.m1-s07-copy');
+  const copyLabel = form.querySelector('.m1-s07-copy-label');
+  const resetButton = form.querySelector('.m1-s07-reset');
+  const status = form.querySelector('.m1-s07-status');
+  const manual = form.querySelector('.m1-s07-manual');
+  const rowTemplate = list.firstElementChild.cloneNode(true);
+  const storageKey = 'm1-s07-form-v1';
+  const maxSteps = 10;
+  const defaultNotice = '입력 내용은 이 브라우저에만 저장됩니다.';
+  let storageAvailable = true;
+  let revision = 0;
+  let copyTimer;
+  let noticeTimer;
+  let copying = false;
+  const rows = () => Array.from(list.children);
+  const stepInput = row => row.querySelector('.m1-s07-step');
+  function announce(message) {
+    clearTimeout(noticeTimer);
+    status.textContent = '';
+    noticeTimer = setTimeout(() => { status.textContent = message; }, 30);
+  }
+  function idleNotice() {
+    return storageAvailable ? defaultNotice : '자동 저장을 사용할 수 없습니다. 복사해 보관하세요.';
+  }
+  function clearCopyFeedback() {
+    revision += 1;
+    clearTimeout(copyTimer);
+    copyLabel.textContent = '복사';
+    manual.hidden = true;
+    manual.value = '';
+  }
+  function createRow(value = '') {
+    const row = rowTemplate.cloneNode(true);
+    stepInput(row).value = value;
+    return row;
+  }
+  function renumber() {
+    const currentRows = rows();
+    currentRows.forEach((row, index) => {
+      const number = index + 1;
+      row.querySelector('.num').textContent = String(number);
+      stepInput(row).setAttribute('aria-label', number + '단계 내용');
+      const removeButton = row.querySelector('.m1-s07-remove');
+      removeButton.setAttribute('aria-label', number + '단계 삭제');
+      removeButton.disabled = currentRows.length === 1;
+    });
+    addButton.disabled = currentRows.length >= maxSteps;
+  }
+  function save() {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify({ task: task.value, steps: rows().map(row => stepInput(row).value) }));
+      storageAvailable = true;
+    } catch {
+      storageAvailable = false;
+    }
+  }
+  function restore() {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw === null) return;
+      const saved = JSON.parse(raw);
+      if (!saved || typeof saved !== 'object' || typeof saved.task !== 'string' || !Array.isArray(saved.steps) || saved.steps.length === 0 || !saved.steps.every(value => typeof value === 'string')) return;
+      task.value = saved.task.slice(0, 60);
+      list.replaceChildren(...saved.steps.slice(0, maxSteps).map(value => createRow(value.slice(0, 40))));
+    } catch {
+      // 저장소나 저장 데이터에 문제가 있어도 기본 3행으로 동작합니다.
+    }
+  }
+  function focusInput(input) {
+    input.focus({ preventScroll: true });
+    const row = input.closest('li');
+    if (!row || row.parentElement !== list) return;
+    const top = row.offsetTop;
+    const bottom = top + row.offsetHeight;
+    if (top < list.scrollTop + 4) list.scrollTop = Math.max(0, top - 4);
+    else if (bottom > list.scrollTop + list.clientHeight - 4) list.scrollTop = bottom - list.clientHeight + 4;
+  }
+  function addStep(afterRow = null) {
+    if (list.children.length >= maxSteps) {
+      announce('단계는 최대 10개까지 추가할 수 있습니다.');
+      return;
+    }
+    clearCopyFeedback();
+    const row = createRow();
+    list.insertBefore(row, afterRow ? afterRow.nextElementSibling : null);
+    renumber();
+    save();
+    focusInput(stepInput(row));
+    announce('단계를 추가했습니다. ' + idleNotice());
+  }
+  function removeStep(row) {
+    const currentRows = rows();
+    const index = currentRows.indexOf(row);
+    if (index < 0 || currentRows.length <= 1) return;
+    clearCopyFeedback();
+    row.remove();
+    renumber();
+    save();
+    const remaining = rows();
+    focusInput(stepInput(remaining[Math.min(index, remaining.length - 1)]));
+    announce('단계를 삭제했습니다. ' + idleNotice());
+  }
+  function buildCopyText() {
+    const name = task.value.trim();
+    const steps = rows().map(row => stepInput(row).value.trim()).filter(Boolean);
+    if (!name && steps.length === 0) return '';
+    return ['작업명: ' + (name || '(미입력)'), '처리 순서:', ...steps.map((value, index) => (index + 1) + '. ' + value)].join('\n');
+  }
+  function legacyCopy(text) {
+    const previousFocus = document.activeElement;
+    const selection = previousFocus && typeof previousFocus.selectionStart === 'number'
+      ? [previousFocus.selectionStart, previousFocus.selectionEnd, previousFocus.selectionDirection] : null;
+    const textarea = document.createElement('textarea');
+    textarea.className = 'm1-s07-clipboard';
+    textarea.value = text;
+    textarea.readOnly = true;
+    textarea.tabIndex = -1;
+    textarea.setAttribute('aria-hidden', 'true');
+    section.appendChild(textarea);
+    try {
+      textarea.focus({ preventScroll: true });
+      textarea.select();
+      textarea.setSelectionRange(0, textarea.value.length);
+      return typeof document.execCommand === 'function' && document.execCommand('copy') === true;
+    } catch {
+      return false;
+    } finally {
+      textarea.remove();
+      try {
+        if (previousFocus && previousFocus.isConnected && !previousFocus.closest('[inert], [hidden]')) {
+          previousFocus.focus({ preventScroll: true });
+          if (selection) previousFocus.setSelectionRange(...selection);
+        }
+      } catch {
+        // 포커스를 복원하지 못해도 양식은 계속 사용할 수 있습니다.
+      }
+    }
+  }
+  async function writeClipboard(text) {
+    try {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch {
+      // 실패하면 숨긴 textarea를 이용한 복사를 시도합니다.
+    }
+    return legacyCopy(text);
+  }
+  form.addEventListener('input', event => {
+    if (event.target !== task && !event.target.matches('.m1-s07-step')) return;
+    clearCopyFeedback();
+    save();
+    clearTimeout(noticeTimer);
+    if (status.textContent !== idleNotice()) status.textContent = idleNotice();
+  });
+  addButton.addEventListener('click', () => addStep());
+  list.addEventListener('click', event => {
+    const button = event.target.closest('.m1-s07-remove');
+    if (button && list.contains(button) && !button.disabled) removeStep(button.closest('li'));
+  });
+  list.addEventListener('keydown', event => {
+    const input = event.target;
+    if (!input.matches('.m1-s07-step') || event.isComposing || event.keyCode === 229 || event.ctrlKey || event.metaKey || event.altKey) return;
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (!event.repeat) addStep(input.closest('li'));
+    } else if (event.key === 'Backspace' && input.value === '' && list.children.length > 1) {
+      event.preventDefault();
+      if (!event.repeat) removeStep(input.closest('li'));
+    }
+  });
+  copyButton.addEventListener('click', async () => {
+    if (copying) return;
+    clearCopyFeedback();
+    const text = buildCopyText();
+    if (!text) {
+      announce('먼저 작업명과 단계를 입력하세요');
+      return;
+    }
+    const currentRevision = revision;
+    copying = true;
+    copyButton.setAttribute('aria-busy', 'true');
+    let copied = false;
+    try {
+      copied = await writeClipboard(text);
+    } catch {
+      copied = false;
+    } finally {
+      copying = false;
+      copyButton.removeAttribute('aria-busy');
+    }
+    if (currentRevision !== revision) return;
+    if (copied) {
+      copyLabel.textContent = '복사됨 ✓';
+      announce('작업명과 처리 순서를 복사했습니다.');
+      copyTimer = setTimeout(() => { copyLabel.textContent = '복사'; }, 2000);
+    } else {
+      copyLabel.textContent = '복사 실패 — 직접 선택해 복사';
+      manual.value = text;
+      manual.hidden = false;
+      manual.focus({ preventScroll: true });
+      manual.select();
+      announce('복사에 실패했습니다. 선택된 텍스트를 Ctrl+C 또는 ⌘C로 복사하세요.');
+    }
+  });
+  resetButton.addEventListener('click', () => {
+    clearCopyFeedback();
+    task.value = '';
+    list.replaceChildren(createRow(), createRow(), createRow());
+    renumber();
+    save();
+    list.scrollTop = 0;
+    focusInput(task);
+    announce('빈 3단계로 초기화했습니다. ' + idleNotice());
+  });
+  restore();
+  renumber();
 })();
 </script>
 </body>
